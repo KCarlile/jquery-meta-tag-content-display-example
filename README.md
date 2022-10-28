@@ -13,6 +13,11 @@ This code example demonstrates a technique to use jQuery to show persona icons (
 |[metatags.html](metatags.html)|Example of looping over meta tags and displaying them and their attributes.|
 |[README.md](README.md)|This file.|
 
+## Try It Yourself
+
+If you download any of the `*.html` files, you can open them in a browser to test the functionality. However, your computer must be connected to the internet as the jQuery libraries are loaded via CDN. (PrismJS libraries are also loaded via CDN in the `index-code.html` example.)
+
+
 ## How Does It Work?
 
 There are multiple elements that make this functionality work.
