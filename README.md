@@ -198,9 +198,30 @@ icon = $(this).attr("persona");
 
 ---
 TESTING
-| Before | After |
-|--------|-------|
-| <pre lang="javascript">// look for elements with class="personaIcon" and id="THE_ICON_VALUE_FROM_META_TAG"<br />$(".personaIcon#" + icon).show();</pre> | <pre lang="javascript">// capture the icon attribute text so we can target the correct icon to display<br />icon = $(this).attr("persona");</pre>|
+
+<table>
+    <tr>
+        <td>Before</td>
+        <td>After</td>
+    </tr>
+    <tr>
+<td>
+
+```javascript
+// capture the icon attribute text so we can target the correct icon to display
+icon = $(this).attr("icon");
+```
+</td>
+<td>
+            
+```javascript
+// capture the icon attribute text so we can target the correct icon to display
+icon = $(this).attr("persona");
+```
+</td>
+    </tr>
+</table>
+
 ---
 
 Lastly, let's change how we target the icon elements, which are now `<img>`s instead of `<span>`s. This line...
