@@ -208,14 +208,12 @@ TESTING
 <td>
 
 ```javascript
-// capture the icon attribute text so we can target the correct icon to display
 icon = $(this).attr("icon");
 ```
 </td>
 <td>
             
 ```javascript
-// capture the icon attribute text so we can target the correct icon to display
 icon = $(this).attr("persona");
 ```
 </td>
