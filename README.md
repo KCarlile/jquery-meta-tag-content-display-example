@@ -8,12 +8,14 @@
    1. [Page Execution](#page-execution)
    1. [HTML](#html)
    1. [jQuery/JavaScript](#jqueryjavascript)
+   1. [Copying/Pasting Into Your Code](#copyingpasting-into-your-code)
 1. [Adapting For Your Code](#adapting-for-your-code)
    1. [Different Markup](#different-markup)
    1. [Changing The jQuery/JavaScript](#changing-the-jqueryjavascript)
       1. [Finding The New Meta Tags](#finding-the-new-meta-tags)
       1. [Targeting The New Elements](#targeting-the-new-elements)
       1. [More Specific Targeting](#more-specific-targeting)
+1. [Dynamic Selector Version](#dynamic-selector-version)
 
 ## Overview
 
