@@ -38,11 +38,11 @@ There are multiple elements that make this functionality work.
 
 - A jQuery CDN include is added below the page content, but before the `</body>` tag, so we can leverage the jQuery library loaded after HTML content.
 - jQuery/JavaScript code does the dynamic work for us (more on this later) which exists between the jQuery CDN include and the `</body>` tag.
-- A set of HTML elements (`<span>`s in this case) represent the persona icons with attributes that are selectable by jQuery, such as:\
+- A set of HTML elements (`<span>`s in this case) represent the persona icons with attributes that are selectable by jQuery, such as:
 `<span class="personaIcon" id="someUniquePersonaName" style="display: none;">[Some emoji code]</span>`\
 (The `style="display: none;"` part is important as we want these icons to start hidden so we only show specific ones based on the meta tags present on the page.)
 Alternately, you could just use `<img>` elements with images and the same class and id attributes.
-- A set of meta tags is used to trigger display of the persona icons, such as:\
+- A set of meta tags is used to trigger display of the persona icons, such as:
 `<meta type="persona" icon="cowboy">`
 
 ### Page Execution
