@@ -195,6 +195,7 @@ icon = $(this).attr("icon");
 // capture the icon attribute text so we can target the correct icon to display
 icon = $(this).attr("persona");
 ```
+
 ---
 TESTING
 | Before | After |
