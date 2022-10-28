@@ -26,6 +26,34 @@
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
         crossorigin="anonymous"></script>
     <script>
+        // ---------- START CONFIG constants ----------
+        /**
+         * Name of the attribute and its value for identifying these types of meta tags.
+         * For example: <meta type="persona" icon="cowboy"> would be "type=persona".
+         */
+        const META_TAG_SELECTOR = "type=persona";
+
+        /**
+         * Name of the attribute containing the icon's identifier.
+         * For example: <meta type="persona" icon="cowboy"> would be "icon".
+         */
+        const META_TAG_ICON_VALUE = "icon";
+
+        /**
+         * jQuery selector for finding the icon set, not an individual one.
+         * For example: <span style="display: none;" class="personaIcon" id="cowboy">&#129312;</span>
+         * would be "span.personaIcon" to indicate <span> tags with a class="personaIcon".
+         */
+        const ICON_GROUP_SELECTOR = "span.personaIcon";
+
+        /**
+         * jQuery selector for the icon's unique identifier, which is usually an id attribute.
+         * For example: <span style="display: none;" class="personaIcon" id="cowboy">&#129312;</span>
+         * would be "#" as the id attribute contains the unique identifier.
+         */
+        const ICON_SELECTOR = "#";
+        // ---------- END CONFIG constants ----------
+
         // wait for the page to be fully loaded
         $(document).ready(function() {
             // call the function to show icons by meta tags once the page has loaded
@@ -36,16 +64,16 @@
          * Loops over meta tags looking for those with type="persona" and captures the icon
          * attribute's value. Then, it looks for an element with class="personaIcon" and id
          * matching the icon attribute's value. If it finds an element like this,
-         * the element is unhidden.
+         * the element is unhidden. This function uses constants defined in global scope.
          */
         function showIconsByMetaTags() {
             // loop over the meta tags looking for those with type="persona" attributes
-            $("meta[type=persona]").each(function (i) {
+            $("meta[" + META_TAG_SELECTOR + "]").each(function (i) {
                 // capture the icon attribute text so we can target the correct icon to display
-                icon = $(this).attr("icon");
+                meta_identifier = $(this).attr(META_TAG_ICON_VALUE);
 
                 // look for elements with class="personaIcon" and id="THE_ICON_VALUE_FROM_META_TAG"
-                $(".personaIcon#" + icon).show();
+                $(ICON_GROUP_SELECTOR + ICON_SELECTOR + meta_identifier).show();
             }); // end each function for meta tags type=persona
         } // end showIconsByMetaTags function
     </script>

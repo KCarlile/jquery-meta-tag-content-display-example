@@ -8,12 +8,14 @@
    1. [Page Execution](#page-execution)
    1. [HTML](#html)
    1. [jQuery/JavaScript](#jqueryjavascript)
+   1. [Copying/Pasting Into Your Code](#copyingpasting-into-your-code)
 1. [Adapting For Your Code](#adapting-for-your-code)
    1. [Different Markup](#different-markup)
    1. [Changing The jQuery/JavaScript](#changing-the-jqueryjavascript)
       1. [Finding The New Meta Tags](#finding-the-new-meta-tags)
       1. [Targeting The New Elements](#targeting-the-new-elements)
       1. [More Specific Targeting](#more-specific-targeting)
+1. [Dynamic Selector Version](#dynamic-selector-version)
 
 ## Overview
 
@@ -25,6 +27,7 @@ This code example demonstrates a technique to use jQuery to show persona icons (
 |------|-------------|
 |[index.html](index.html)|Simple example with the least amount of code.|
 |[index-code.html](index-code.html)|Simple example with code displayed on the page for reference.|
+|[index-dynamic-selector.html](index-dynamic-selector.html)|Example with parameterized options for more flexible usage.|
 |[metatags.html](metatags.html)|Example of looping over meta tags and displaying them and their attributes.|
 |[README.md](README.md)|This file.|
 
@@ -118,6 +121,20 @@ function showIconsByMetaTags() {
 } // end showIconsByMetaTags function
 </script>
 ```
+
+### Copying/Pasting Into Your Code
+
+Each file has some markers to indicate where to start and stop copying the code to paste into your page. Those markers look like this:
+
+```html
+<!-- ########## START COPY/PASTE ########## -->
+<html-and-js-code>
+    ...
+</html-and-js-code>
+<!-- ########## END COPY/PASTE ########## -->
+```
+
+That block should be pasted just above your `</body>` tag.
 
 ## Adapting For Your Code
 
@@ -259,4 +276,44 @@ If you have other elements with the `icons` class on the page, you may need to f
 ```javascript
 // look for elements with class="personaIcon" and id="THE_ICON_VALUE_FROM_META_TAG"
 $("img.personaIcon#" + icon).show();
+```
+
+## Dynamic Selector Version
+
+You can try using the dynamic selector code version of this in this file: [index-dynamic-selector.html](index-dynamic-selector.html)
+
+__:warning: This code has not been tested with all possible meta tag and icon options. :warning:__
+
+The primary difference in this file is that an attempt has been made to make this configurable for different options so that it's more flexible. You can change the values in the constants to tailor it to your meta tags and icons without having to modify the rest of the code.
+
+These are the constants that you can configure:
+
+```javascript
+// ---------- START CONFIG constants ----------
+/**
+ * Name of the attribute and its value for identifying these types of meta tags.
+ * For example: <meta type="persona" icon="cowboy"> would be "type=persona".
+ */
+const META_TAG_SELECTOR = "type=persona";
+
+/**
+ * Name of the attribute containing the icon's identifier.
+ * For example: <meta type="persona" icon="cowboy"> would be "icon".
+ */
+const META_TAG_ICON_VALUE = "icon";
+
+/**
+ * jQuery selector for finding the icon set, not an individual one.
+ * For example: <span style="display: none;" class="personaIcon" id="cowboy">&#129312;</span>
+ * would be "span.personaIcon" to indicate <span> tags with a class="personaIcon".
+ */
+const ICON_GROUP_SELECTOR = "span.personaIcon";
+
+/**
+ * jQuery selector for the icon's unique identifier, which is usually an id attribute.
+ * For example: <span style="display: none;" class="personaIcon" id="cowboy">&#129312;</span>
+ * would be "#" as the id attribute contains the unique identifier.
+ */
+const ICON_SELECTOR = "#";
+// ---------- END CONFIG constants ----------
 ```
