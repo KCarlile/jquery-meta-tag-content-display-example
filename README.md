@@ -9,6 +9,9 @@
    1. [HTML](#html)
    1. [jQuery/JavaScript](#jqueryjavascript)
 1. [Adapting For Your Code](#adapting-for-your-code)
+   1. [Different Markup](#different-markup)
+   1. [Changing The jQuery/JavaScript](#changing-the-jqueryjavascript)
+   1. [More Specific Targeting](#more-specific-targeting)
 
 ## Overview
 
@@ -118,6 +121,8 @@ function showIconsByMetaTags() {
 
 If you have an existing page with meta tags and icons (or other content) to show based on meta tags, you'll need to make some modifications to the code.
 
+### Different Markup
+
 Ensure that your icon elements have a class that you can target that is unique to these items, but the same for all of them, such as `class="personaIcon"` as we have done here. They will also need unique IDs so each one can be targeted and this should be the same as an attribute in the meta tag.
 
 For example, if you have `<img>`s instead of `<span>`s with different classes, it might look something like this:
@@ -141,6 +146,8 @@ Let's presume a different set of meta tags as well:
 ```
 
 Here, you can see that the attributes _and_ values are all different from our example.
+
+### Changing The jQuery/JavaScript
 
 To make the jQuery/JavaScript code work with these different icon tags and meta tags, let's see what we'd need to change in the code.
 
@@ -202,6 +209,8 @@ $(".personaIcon#" + icon).show();
 // look for elements with class="personaIcon" and id="THE_ICON_VALUE_FROM_META_TAG"
 $(".icons#" + icon).show();
 ```
+
+### More Specific Targeting
 
 If you have other elements with the `icons` class on the page, you may need to further target those `<img>` elements to be more specific, like this:
 
