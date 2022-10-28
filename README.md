@@ -66,7 +66,9 @@ You can see that the meta tag for the alien icon has `type="HIDEpersona"` to ind
 The following line should be below your content before the `</body>` tag. This loads the jQuery library via CDN. If your page already has jQuery loaded, you may not need this.
 
 ```html
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous"></script>
 ```
 
 This next block of code is doing the heavy lifting. (Well, the jQuery library is doing the _real_ heavy lifting.) This goes after the jQuery CDN include but also before the `</body>` tag.
@@ -80,9 +82,10 @@ $(document).ready(function() {
 }); // end document ready function
 
 /**
- * Loops over meta tags looking for those with type="persona" and captures the icon attribute's value.
- * Then, it looks for an element with class="personaIcon" and id matching the icon attribute's value.
- * If it finds an element like this, the element is unhidden.
+ * Loops over meta tags looking for those with type="persona" and captures the icon
+ * attribute's value. Then, it looks for an element with class="personaIcon" and id
+ * matching the icon attribute's value. If it finds an element like this,
+ * the element is unhidden.
  */
 function showIconsByMetaTags() {
     // loop over the meta tags looking for those with type="persona" attributes

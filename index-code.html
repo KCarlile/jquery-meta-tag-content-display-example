@@ -41,7 +41,9 @@
 &lt;span style="font-size: 4em; display: none;" class="personaIcon" id="robot"&gt;&#129302;&lt;/span&gt;
 &lt;span style="font-size: 4em; display: none;" class="personaIcon" id="alien"&gt;&#128125;&lt;/span&gt;</code></pre>
     <h3>jQuery/JavaScript</h3>
-    <pre><code class="language-javascript">&lt;script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"&gt;&lt;/script&gt;
+    <pre><code class="language-javascript">&lt;script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"&gt;&lt;/script&gt;
 &lt;script&gt;
     // wait for the page to be fully loaded
     $(document).ready(function() {
@@ -50,9 +52,10 @@
     }); // end document ready function
 
     /**
-     * Loops over meta tags looking for those with type="persona" and captures the icon attribute's value.
-     * Then, it looks for an element with class="personaIcon" and id matching the icon attribute's value.
-     * If it finds an element like this, the element is unhidden.
+     * Loops over meta tags looking for those with type="persona" and captures the icon
+     * attribute's value. Then, it looks for an element with class="personaIcon" and id
+     * matching the icon attribute's value. If it finds an element like this,
+     * the element is unhidden.
      */
     function showIconsByMetaTags() {
         // loop over the meta tags looking for those with type="persona" attributes
@@ -66,7 +69,9 @@
     } // end showIconsByMetaTags function
 &lt;/script&gt;
 </code></pre>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"></script>
     <script>
         // wait for the page to be fully loaded
         $(document).ready(function() {
@@ -75,9 +80,10 @@
         }); // end document ready function
 
         /**
-         * Loops over meta tags looking for those with type="persona" and captures the icon attribute's value.
-         * Then, it looks for an element with class="personaIcon" and id matching the icon attribute's value.
-         * If it finds an element like this, the element is unhidden.
+         * Loops over meta tags looking for those with type="persona" and captures the icon
+         * attribute's value. Then, it looks for an element with class="personaIcon" and id
+         * matching the icon attribute's value. If it finds an element like this,
+         * the element is unhidden.
          */
         function showIconsByMetaTags() {
             // loop over the meta tags looking for those with type="persona" attributes
