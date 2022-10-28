@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta type="persona" icon="cowboy">
+    <meta type="persona" icon="vampire">
+    <meta type="persona" icon="zombie">
+    <meta type="persona" icon="robot">
+    <meta type="HIDEpersona" icon="alien">
+    <title>jQuery Meta Tag Content Display Example</title>
+</head>
+<body>
+    <h1>jQuery Meta Tag Content Display Example</h1>
+    <h2>Show Icons by Meta Tags</h2>
+    <div>
+        <span style="font-size: 4em; display: none;" class="personaIcon" id="cowboy">&#129312;</span>
+        <span style="font-size: 4em; display: none;" class="personaIcon" id="vampire">&#129499;</span>
+        <span style="font-size: 4em; display: none;" class="personaIcon" id="zombie">&#129503;</span>
+        <span style="font-size: 4em; display: none;" class="personaIcon" id="robot">&#129302;</span>
+        <span style="font-size: 4em; display: none;" class="personaIcon" id="alien">&#128125;</span>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        // wait for the page to be fully loaded
+        $(document).ready(function() {
+            // call the function to show icons by meta tags once the page has loaded
+            showIconsByMetaTags();
+        }); // end document ready function
+
+        /**
+         * Loops over meta tags looking for those with type="persona" and captures the icon attribute's value.
+         * Then, it looks for an element with class="personaIcon" and id matching the icon attribute's value.
+         * If it finds an element like this, the element is unhidden.
+         */
+        function showIconsByMetaTags() {
+            // loop over the meta tags looking for those with type="persona" attributes
+            $("meta[type=persona]").each(function (i) {
+                // capture the icon attribute text so we can target the correct icon to display
+                icon = $(this).attr("icon");
+
+                // look for elements with class="personaIcon" and id="THE_ICON_VALUE_FROM_META_TAG"
+                $(".personaIcon#" + icon).show();
+            }); // end each function for meta tags type=persona
+        } // end showIconsByMetaTags function
+    </script>
+</body>
+</html>

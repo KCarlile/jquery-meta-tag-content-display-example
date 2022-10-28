@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta type="persona" icon="cowboy">
+    <meta type="persona" icon="vampire">
+    <meta type="persona" icon="zombie">
+    <meta type="persona" icon="robot">
+    <meta type="NOTpersona" icon="alien">
+    <title>jQuery List Meta Tags Example</title>
+</head>
+<body>
+    <h1>jQuery List Meta Tags Example</h1>
+    <h2>List Metatags</h2>
+    <div>
+        <ul id="metatagList">
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        // wait for the page to be fully loaded
+        $(document).ready(function() {
+            listMetaTagsAttributes();
+        }); // end document ready function
+
+        /**
+         * Iterates over meta tags and their attributes and appends them to <ul id="metaTagList"> as <li>
+         */
+        function listMetaTagsAttributes() {
+            // iterate over meta tags and list attributes
+            $("meta").each(function(i) {
+                // string for HTML to append for each meta tag and its attributes
+                html = "";
+
+                if(this.attributes.length > 0) {
+                    html += "<ul>";
+
+                    // iterate over each attribute and add them to an array
+                    $.each(this.attributes, function(j, attribute) {
+                        // append each attribute name and value
+                        html += "<li>" + attribute.name + ": " + attribute.value + "</li>";
+                    });
+
+                    html += "</ul>";
+                } // end if test
+
+                $("#metatagList").append($("<li>").text($(this)[0].outerHTML).append(html));
+            }); // end each function for meta tags
+        } // end listMetaTagsAttributes function
+    </script>
+</body>
+</html>
