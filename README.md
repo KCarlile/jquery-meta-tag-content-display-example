@@ -11,7 +11,10 @@
 1. [Adapting For Your Code](#adapting-for-your-code)
    1. [Different Markup](#different-markup)
    1. [Changing The jQuery/JavaScript](#changing-the-jqueryjavascript)
+      1. [Finding The New Meta Tags](#finding-the-new-meta-tags)
+      1. [Targeting The New Elements](#targeting-the-new-elements)
    1. [More Specific Targeting](#more-specific-targeting)
+
 
 ## Overview
 
@@ -151,6 +154,8 @@ Here, you can see that the attributes _and_ values are all different from our ex
 
 To make the jQuery/JavaScript code work with these different icon tags and meta tags, let's see what we'd need to change in the code.
 
+#### Finding The New Meta Tags
+
 Looking at the `showIconsbyMetaTags()` function, we see this:
 
 ```javascript
@@ -182,22 +187,14 @@ $("meta[type=persona]").each(function (i) {
 $("meta[function=show]").each(function (i) {
 ```
 
-Now we need to change the icon name attribute from `icon` to `persona`. So, this line...
+Now we need to change the icon name attribute from `icon` to `persona`. Look for this code:
 
 ```javascript
 // capture the icon attribute text so we can target the correct icon to display
 icon = $(this).attr("icon");
 ```
 
-...becomes this:
-
-```javascript
-// capture the icon attribute text so we can target the correct icon to display
-icon = $(this).attr("persona");
-```
-
----
-TESTING
+...and make this change:
 
 <table>
     <tr>
@@ -220,21 +217,37 @@ icon = $(this).attr("persona");
     </tr>
 </table>
 
----
+#### Targeting The New Elements
 
-Lastly, let's change how we target the icon elements, which are now `<img>`s instead of `<span>`s. This line...
+Lastly, let's change how we target the icon elements, which are now `<img>`s instead of `<span>`s. Look for this code:
 
 ```javascript
 // look for elements with class="personaIcon" and id="THE_ICON_VALUE_FROM_META_TAG"
 $(".personaIcon#" + icon).show();
 ```
 
-...becomes this:
+...and make this change:
+
+<table>
+    <tr>
+        <td>Before</td>
+        <td>After</td>
+    </tr>
+    <tr>
+<td>
 
 ```javascript
-// look for elements with class="personaIcon" and id="THE_ICON_VALUE_FROM_META_TAG"
+$(".personaIcon#" + icon).show();
+```
+</td>
+<td>
+            
+```javascript
 $(".icons#" + icon).show();
 ```
+</td>
+    </tr>
+</table>
 
 ### More Specific Targeting
 
