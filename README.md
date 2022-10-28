@@ -1,5 +1,15 @@
 # jQuery Meta Tag Example
 
+## Table Of Contents
+1. [Overview](#overview)
+   1. [File Index](#file-index)
+1. [Try It Yourself](#try-it-yourself)
+1. [How Does It Work?](#how-does-it-work)
+   1. [Page Execution](#page-execution)
+   1. [HTML](#html)
+   1. [jQuery/JavaScript](#jqueryjavascript)
+1. [Adapting For Your Code](#adapting-for-your-code)
+
 ## Overview
 
 This code example demonstrates a technique to use jQuery to show persona icons (or any content) based on the presence of meta tags. For example, let's say you want to display persona icons on a page to illustrated the target audience. You can have a set of icons on the page that are hidden and then enable display of certain persona icons by adding a meta tag to trigger display of that persona icon.
@@ -17,7 +27,6 @@ This code example demonstrates a technique to use jQuery to show persona icons (
 
 If you download any of the `*.html` files, you can open them in a browser to test the functionality. However, your computer must be connected to the internet as the jQuery libraries are loaded via CDN. (PrismJS libraries are also loaded via CDN in the `index-code.html` example.)
 
-
 ## How Does It Work?
 
 There are multiple elements that make this functionality work.
@@ -31,7 +40,7 @@ Alternately, you could just use `<img>` elements with images and the same class 
 - A set of meta tags is used to trigger display of the persona icons, such as:\
 `<meta type="persona" icon="cowboy">`
 
-## Page Execution
+### Page Execution
 
 Page execution happens like this:
 
