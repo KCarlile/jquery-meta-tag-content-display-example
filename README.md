@@ -13,8 +13,7 @@
    1. [Changing The jQuery/JavaScript](#changing-the-jqueryjavascript)
       1. [Finding The New Meta Tags](#finding-the-new-meta-tags)
       1. [Targeting The New Elements](#targeting-the-new-elements)
-   1. [More Specific Targeting](#more-specific-targeting)
-
+      1. [More Specific Targeting](#more-specific-targeting)
 
 ## Overview
 
@@ -207,12 +206,14 @@ icon = $(this).attr("icon");
 ```javascript
 icon = $(this).attr("icon");
 ```
+
 </td>
 <td>
-            
+
 ```javascript
 icon = $(this).attr("persona");
 ```
+
 </td>
     </tr>
 </table>
@@ -239,17 +240,19 @@ $(".personaIcon#" + icon).show();
 ```javascript
 $(".personaIcon#" + icon).show();
 ```
+
 </td>
 <td>
-            
+
 ```javascript
 $(".icons#" + icon).show();
 ```
+
 </td>
     </tr>
 </table>
 
-### More Specific Targeting
+#### More Specific Targeting
 
 If you have other elements with the `icons` class on the page, you may need to further target those `<img>` elements to be more specific, like this:
 
