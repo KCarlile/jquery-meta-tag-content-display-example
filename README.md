@@ -21,6 +21,42 @@
 
 This code example demonstrates a technique to use jQuery to show persona icons (or any content) based on the presence of meta tags. For example, let's say you want to display persona icons on a page to illustrated the target audience. You can have a set of icons on the page that are hidden and then enable display of certain persona icons by adding a meta tag to trigger display of that persona icon.
 
+### Concept
+
+The code provided here is presented as a generic, platform-independent example. If you want to apply this concept to a specific platform, you may wish to simplify the code, but some of this code may be useful for reference. The overall concept being used here is as follows:
+
+1. When the page loads, all possible persona icons are present, but hidden from display.
+1. Look for the meta tag(s) containing the associated persona values for the page.
+1. For each persona value, show the hidden role icon associated with that persona value.
+
+Or, for a more technical summary:
+
+- An HTML page exists with some meta tags that define some variables for the page. In this case, those meta tags define the personas/roles that apply to the content on this page.
+  - The meta tag can be a singular tag:
+    ```html
+    <meta name="personas" content="Admin, ContentManager, Reviewer">
+    ```
+  - Or, the meta tag can be multiple meta tags with the same name and one value per tag:
+    ```html
+    <meta name="persona" content="Admin">
+    <meta name="persona" content="Content Manager">
+    <meta name="persona" content="Reviewer">
+    ```
+    However, the code in this example assumes multiple meta tags.
+- On the HTML page, there are _N_ role icons where _N_ is equal to the max number of personas and the role icons have CSS (inline or global) that sets `display: none;`. The role icon items must also have an ID that matches one of the personas and a class that matches the meta tag name. (Technically, these don't actually need to be identical, but you have to do some mapping if they aren't the same.)
+  - If you wrap your role icons in `<div>`s or any other markup, you may want to put the `display: none;` styling on the wrapper rather than the `<img>` itself.
+  - Example:
+    ```html
+    <img src="images/role1.png" class="personas" id="Admin" style="display: none;" />
+    <img src="images/role2.png" class="personas" id="ContentManager" style="display: none;" />
+    <img src="images/role3.png" class="personas" id="Reviewer" style="display: none;" />
+    ```
+- Add some JavaScript that does the following:
+  - Once the page has been fully loaded, get the personas for the page:
+    - A) For multiple meta tags each with a singular value, loop over the meta tags where `name = "persona"` and capture each role.
+    - B) For one meta tag with multiple values, find the meta tag with `name = "personas"` and split the values by `,` to capture each role.
+  - Loop over the personas and role icons (by `class="personas"`) to set the role icons to visible where there is a match (`style="display: block;"`, `style="display: inline;"`, or remove the `display` property completely from the element).
+
 ### File Index
 
 | File | Description |
